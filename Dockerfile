@@ -2,9 +2,12 @@ FROM node:lts-buster-slim
 
 WORKDIR /app
 
-COPY . .
+COPY ./package.json ./
+COPY ./package-lock.json ./
 
 RUN npm ci
+
+COPY . .
 
 ENV NODE_ENV production
 
